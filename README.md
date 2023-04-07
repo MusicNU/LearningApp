@@ -1,1 +1,0 @@
-REACT music learning app!
