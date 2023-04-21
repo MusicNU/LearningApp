@@ -11,8 +11,8 @@ const HomePage = () => {
     return (
         <>
             <ThemeProvider theme={theme}>
-                <TextBox>{headingText}</TextBox>
-                <TextBox>{bodyText}</TextBox>
+                <TextBox name={headingText} width='25%' left='37.5%' ></TextBox>
+                <TextBox name={bodyText} width= '50%' left='25%'></TextBox>
                 <ButtonComponent></ButtonComponent>
             </ThemeProvider>
             

@@ -8,11 +8,11 @@ return (<ThemeProvider theme={theme}>
             <Paper sx = {{       'padding':'25px',
                                 'fontFamily':theme.fontFamily,
                                 'textAlign':'center',
-                                'width' : '25%',
+                                'width' : props.width,
                                 'position':'relative',
-                                'left':'37.5%'
+                                'left':props.left
                                 }}>
-                {props.children}
+                {props.name}
             </Paper>
         </ThemeProvider>
 )}
