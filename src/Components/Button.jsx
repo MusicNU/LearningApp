@@ -12,7 +12,7 @@ export default function ButtonComponent() {
         <Button sx = {{width: '25%',
                       textAlign: 'center',
                       color: 'primary'
-                      }}>Get Started</Button>
+                      }}>Take me there</Button>
       </Box>
 
       

@@ -1,9 +1,11 @@
 import { Box, Button, Grid, Stack } from '@mui/material';
+import { ThemeProvider, useTheme } from '@mui/material/styles';
+import theme from '../theme';
 
 
 function NavBar({links}) {
 	return (
-		<Box sx={{ py: 1, px: 3, bgcolor: "primary.main"}}>
+		<Box sx={{ py: 1, px: 3, bgcolor: theme.palette.primary.main, boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.3)'}}>
 			<Grid
 				container
 				justifyContent="space-between"
@@ -28,7 +30,7 @@ function NavBarLinks({links}) {
 						<Button
 							href={link.addr}
 							variant="text"
-							sx={{color: "common.white"}}
+							sx={{color: theme.palette.primary.light}}
 							size="large"
 						>{link.label}</Button>
 					</Grid>
