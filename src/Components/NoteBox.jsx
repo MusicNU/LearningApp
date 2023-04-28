@@ -3,20 +3,14 @@ import Button from '@mui/material/Button';
 import { useTheme} from '@mui/material/styles';
 import TextBox from '../Components/TextCard';
 
-export default function NoteBox({note_name, note_height, note_number}) {
-  const theme = useTheme();
-  return (
-        <Box sx = {{width: "100%",
-                      textAlign: 'center',
-                      color: 'primary',
-                      backgroundColor: 'white',
-                      textColor: 'white'
-                      }}>
-                    <TextBox name={note_name} 
-                            width='10%' 
-                            left = {note_number*10}
-                            height = {note_height}> 
-                            </TextBox>    
-        </Box>
+export default function NoteBox({note_sequence}) {
+
+  return ( 
+    <>
+          {note_sequence.map(note => 
+                        <TextBox name={note} 
+                        width='10%' > 
+                        </TextBox>)}
+    </>
   );
 }
