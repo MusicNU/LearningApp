@@ -5,7 +5,8 @@ import theme from '../theme';
 function TextBox(props) {
 
 return (<ThemeProvider theme={theme}>
-    <Paper elevation={props.elevation} sx={{
+    <Paper elevation={props.elevation} 
+    sx={{
         'padding': '25px',
         'fontFamily': theme.typography.fontFamily,
         'fontSize': props.fontSize,
