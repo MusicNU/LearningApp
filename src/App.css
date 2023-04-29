@@ -36,3 +36,55 @@
     transform: rotate(360deg);
   }
 }
+
+.center{
+  text-align: center;
+  align-items: center;
+}
+
+h1{
+  color: #465d87;
+  font-family: 'Candara', sans-serif;
+  font-size: 60px;
+  padding-top: 20px;
+}
+
+h2{
+  color: #465d87;
+  font-family: 'Candara', sans-serif;
+  font-size: 60px;
+  margin-top: 40px
+}
+
+p{
+  color: #465d87;
+  font-family: 'Candara', sans-serif;
+  font-size: 20px;
+  margin: auto;
+  margin-bottom: 30px;
+  width: 500px;
+  text-align: center
+}
+
+h3{
+  color: #465d87;
+  font-family: 'Candara', sans-serif;
+  font-size: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  text-align: center
+}
+
+body{
+  color: #465d87;
+  font-family: 'Candara', sans-serif;
+  font-size: 20px;
+  text-align: center
+}
+
+sub{
+  color: #838fa6;
+  font-family: 'Candara', sans-serif;
+  font-size: 18px;
+  text-align: center
+}
