@@ -1,17 +1,39 @@
 import { Box, Container, Grid, Typography, TextField} from '@mui/material/';
 import NoteBox from '../Components/NoteBox';
+import Searchbar from '../Components/SearchBar';
+import React from 'react';
+import youtube from '../apis/youtube';
 
-//dummy values
-const note_heights = {"A":1,"B":2,"C":3,"D":4};
-const note_sequence = ["A","B","C","D","E","F","G"];
-//useState here
-const SongPage = () => {
+class Song extends React.Component {
+    state = {
+        videos: [],
+        selectedVideo: null
+    }
+    handleSubmit = async (termFromSearchBar) => {
+        const response = await youtube.get('/search', {
+            params: {
+                q: termFromSearchBar
+            }
+        })
+  
+        this.setState({
+            videos: response.data.items
+        })
+        console.log("this is resp",response);
+    };
+    handleVideoSelect = (video) => {
+        this.setState({selectedVideo: video})
+    }
+  
+      render() {
     return (
-            <Box>
-                <NoteBox note_sequence = {note_sequence}></NoteBox>
-                
-            </Box>
-    )
-};
+      <>
+        <Searchbar handleFormSubmit={this.handleSubmit}/>
+      </>
+            
+    );
+  }
+}
 
-export default SongPage;
+export default Song;
+  

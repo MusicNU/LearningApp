@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from './pages/homepage';
-import SongPage from './pages/song';
+import Song from './pages/song';
 import AboutPage from './pages/aboutpage';
 import NavBar from './Components/NavBar';
 
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path='/'  element={<HomePage />} />
             <Route path='/'  element={<HomePage />} />
-            <Route path='/song'  element={<SongPage />} />
+            <Route path='/song'  element={<Song />} />
             <Route path='/about'  element={<AboutPage />} />
           </Routes>
         </Router>
