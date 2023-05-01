@@ -3,6 +3,8 @@ import NoteBox from '../Components/NoteBox';
 import Searchbar from '../Components/SearchBar';
 import React from 'react';
 import youtube from '../apis/youtube';
+import VideoDetail from '../Components/videos/videoDetail';
+import VideoList from '../Components/videos/videoList';
 
 class Song extends React.Component {
     state = {
@@ -28,7 +30,19 @@ class Song extends React.Component {
       render() {
     return (
       <>
-        <Searchbar handleFormSubmit={this.handleSubmit}/>
+        <div className='ui container' style={{marginTop: '1em'}}>
+                <Searchbar handleFormSubmit={this.handleSubmit}/>
+                <div className='ui grid'>
+                    <div className="ui row">
+                        <div className="eleven wide column">
+                            <VideoDetail video={this.state.selectedVideo}/>
+                        </div>
+                        <div className="five wide column">
+                            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
       </>
             
     );

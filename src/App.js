@@ -7,6 +7,7 @@ import AboutPage from './pages/aboutpage';
 import NavBar from './Components/NavBar';
 
 
+
 function App() {
   const NavBarLinks = [
     {label: "MusicNU", addr: "/"},
