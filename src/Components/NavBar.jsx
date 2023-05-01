@@ -7,7 +7,7 @@ function NavBar({links}) {
 	return (
 		//purple rgba(65, 55, 138, 0.3)
 		//blue rgba(72, 98, 132, 0.3)
-		<Box sx={{ py: 1, px: 3, bgcolor: theme.palette.primary.light, boxShadow: '0px 4px 5px rgba(72, 98, 132, 0.3)'}}>
+		<Box sx={{ py: 0.5, px: 3, bgcolor: theme.palette.primary.light, boxShadow: '0px 4px 5px rgba(72, 98, 132, 0.3)'}}>
 			<Grid
 				container
 				justifyContent="space-between"
@@ -32,7 +32,9 @@ function NavBarLinks({links}) {
 						<Button
 							href={link.addr}
 							variant="text"
-							sx={{color: theme.palette.primary.main}}
+							sx={{color: theme.palette.primary.main,
+								fontFamily: ['Londrina Solid','sans-serif'].join(','),
+								fontSize: '24px'}}
 							size="large"
 						>{link.label}</Button>
 					</Grid>

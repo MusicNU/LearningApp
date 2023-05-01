@@ -13,7 +13,7 @@ const theme = createTheme({
     }},
   typography: {
     fontFamily: [
-      'Candara',
+      'Nunito',
       'sans-serif'
 		].join(','),
   }})
