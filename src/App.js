@@ -10,7 +10,6 @@ import NavBar from './Components/NavBar';
 
 function App() {
   const NavBarLinks = [
-    {label: "MusicNU", addr: "/"},
     {label: "Home", addr: "/"},
     {label: "Music", addr: "/song"},
     {label: "About", addr: "/about"}
@@ -20,7 +19,6 @@ function App() {
         <Router>
           <NavBar links={NavBarLinks}/>
           <Routes>
-            <Route path='/'  element={<HomePage />} />
             <Route path='/'  element={<HomePage />} />
             <Route path='/song'  element={<Song />} />
             <Route path='/about'  element={<AboutPage />} />

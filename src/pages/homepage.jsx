@@ -1,5 +1,4 @@
-import { Box, Container, Grid, Typography, TextField, ThemeProvider } from '@mui/material/';
-import ButtonComponent from '../Components/Button';
+import { Box, Container, Grid, Typography, TextField, ThemeProvider,Button } from '@mui/material/';
 import TextBox from '../Components/TextCard';
 import theme from '../theme';
 
@@ -17,7 +16,9 @@ const HomePage = () => {
                         MusicNU is an interactive website that will take a chosen song from a user, transform it into a visual display, and analyze the song’s chord makeup, melody, rhythm, tempo, key, and other features to help students learn about music theory. Using Spotify’s Web API to generate song analysis, Melodia and Sonic Visualizer to extract a song’s melody, and AI/machine learning to identify chords, we will create a visual display of the song where users can learn about the music theory of the song in a fun, visual, and accessible way.</p>
                 </div>
                 <div class="center">
-                    <ButtonComponent></ButtonComponent>
+                    <Button variant="contained" href="song"
+                    sx={{width: '25%',textAlign: 'center',color: 'primary',
+                    }}>Take me there</Button>
                 </div>
             </ThemeProvider>
 

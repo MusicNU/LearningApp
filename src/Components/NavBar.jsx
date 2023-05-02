@@ -1,5 +1,5 @@
 import { Box, Button, Grid, Stack } from '@mui/material';
-import { ThemeProvider, useTheme } from '@mui/material/styles';
+import NavButton from '../Components/NavButton';
 import theme from '../theme';
 
 
@@ -7,17 +7,17 @@ function NavBar({links}) {
 	return (
 		//purple rgba(65, 55, 138, 0.3)
 		//blue rgba(72, 98, 132, 0.3)
-		<Box sx={{ py: 0.5, px: 3, bgcolor: theme.palette.primary.light, boxShadow: '0px 4px 5px rgba(72, 98, 132, 0.3)'}}>
-			<Grid
-				container
+		<Box sx={{ py: 0.5, px: 4.5, display: 'flex',
+			bgcolor: theme.palette.primary.light, 
+			boxShadow: '0px 4px 5px rgba(72, 98, 132, 0.3)'}}>
+			<NavButton addr='/' label='MusicNU' weight='bold'></NavButton>
+			<Grid container
 				justifyContent="space-between"
-				alignContent="center"
-			>
-				<Grid item xs="auto">
-				</Grid>
-				<Grid item xs={12} md="auto" container alignContent="center">
+				alignContent="center">
+			<Grid item xs="auto"></Grid>
+			<Grid item xs="auto" md="auto" container alignContent="center">
 					<NavBarLinks links={links}/>
-				</Grid>
+			</Grid>
 			</Grid>
 		</Box>
 	);
@@ -29,14 +29,7 @@ function NavBarLinks({links}) {
 			{links.map(link => {
 				return (
 					<Grid item key={link.label} xs="auto">
-						<Button
-							href={link.addr}
-							variant="text"
-							sx={{color: theme.palette.primary.main,
-								fontFamily: ['Londrina Solid','sans-serif'].join(','),
-								fontSize: '24px'}}
-							size="large"
-						>{link.label}</Button>
+						<NavButton addr={link.addr} label={link.label}></NavButton>
 					</Grid>
 				);
 			})}

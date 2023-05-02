@@ -42,9 +42,8 @@
   align-items: center;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Chelsea+Market&family=Fredericka+the+Great&family=K2D&family=Laila&family=Londrina+Solid:wght@300&family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=K2D&family=Laila&family=Londrina+Solid:wght@300&family=Nunito&display=swap');
 
-/* options: Fredericka the Great, Chelsea Market, Londrina Solid */
 h1{
   color: #465d87;
   font-family: 'Londrina Solid', sans-serif;
