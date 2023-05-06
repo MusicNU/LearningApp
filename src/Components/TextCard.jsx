@@ -7,7 +7,6 @@ function TextBox(props) {
 return (<ThemeProvider theme={theme}>
     <Paper elevation={props.elevation} 
     sx={{
-        'padding': '25px',
         'fontFamily': theme.typography.fontFamily,
         'fontSize': props.fontSize,
         'color': theme.palette.primary.main,
@@ -15,7 +14,8 @@ return (<ThemeProvider theme={theme}>
         'width': props.width,
         'position': 'relative',
         'left': props.left,
-        'marginTop': props.marginTop
+        'marginTop': props.marginTop,
+        'backgroundColor': 'transparent'
     }}>
         {props.name}
     </Paper>
