@@ -5,7 +5,7 @@ import HomePage from './pages/homepage';
 import Song from './pages/song';
 import AboutPage from './pages/aboutpage';
 import NavBar from './Components/NavBar';
-
+import Vis from './pages/musicvis';
 
 
 function App() {
@@ -22,6 +22,7 @@ function App() {
             <Route path='/'  element={<HomePage />} />
             <Route path='/song'  element={<Song />} />
             <Route path='/about'  element={<AboutPage />} />
+            <Route path='/musicvis'  element={<Vis />} />
           </Routes>
         </Router>
           
