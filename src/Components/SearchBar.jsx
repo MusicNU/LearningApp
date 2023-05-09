@@ -19,7 +19,7 @@ class Searchbar extends React.Component {
         return (
             <>
             {/* search bar */}
-            <div className='ui form' style={{textAlign:'center',marginTop:'130px'}}>
+            <div className='ui form' style={{textAlign:'center',marginTop:'100px'}}>
                 <form onSubmit={this.handleSubmit} className='searchBar'>
                     <div className='searchBar'>
                         {/* <label htmlFor="video-search">Video Search</label> */}

@@ -22,7 +22,7 @@ const AboutPage = () => {
             <div class='center'>
                 <h2>Meet Us!</h2>
             </div>
-            <Box sx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', paddingBottom: '60px', alignContent: 'space-evenly', rowGap: '40px'}}>
+            <Box sx={{ display: 'flex', justifyContent: 'space-evenly', flexWrap: 'wrap', marginBottom: '60px', alignContent: 'space-evenly', rowGap: '40px'}}>
                 <Card sx={{ width: '300px' }} className='card'>
                     <CardContent>
                         <h3>Person 1</h3>

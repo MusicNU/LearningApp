@@ -7,14 +7,13 @@ function NavBar({links}) {
 	return (
 		//purple rgba(65, 55, 138, 0.3)
 		//blue rgba(72, 98, 132, 0.3)
-		<Box sx={{ py: 0.5, px: 4.5, display: 'flex',
+		<Box sx={{ py: 0.5, px: 4, 
 			bgcolor: theme.palette.primary.light, 
 			boxShadow: '0px 4px 5px rgba(72, 98, 132, 0.3)'}}>
-			<NavButton addr='/' label='MusicNU' weight='bold'></NavButton>
 			<Grid container
 				justifyContent="space-between"
-				alignContent="center">
-			<Grid item xs="auto"></Grid>
+				alignContent="right">
+			<NavButton addr='/' label='MusicNU' weight='bold'></NavButton>
 			<Grid item xs="auto" md="auto" container alignContent="center">
 					<NavBarLinks links={links}/>
 			</Grid>
