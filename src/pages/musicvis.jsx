@@ -1,4 +1,6 @@
-import '../App.css'
+import '../App.css';
+import Note from '../Components/pianoroll/Note';
+import LineSetup from '../Components/pianoroll/LineSetup';
 
 const num_divisions = 5
 const line1 = {A:[0,2]}
@@ -46,7 +48,7 @@ const Vis = () => {
         }
         .beat-line.measure {
           stroke: #ccc;
-          stroke-opacity: 0.3;
+          stroke-opacity: 0.2;
         }
         .timeline #note-hint {
           position: absolute;
@@ -146,10 +148,17 @@ const Vis = () => {
         <svg className="container-bass" version="1.1" viewBox="0 0 640 150">
           <g>
             <g>
-              <rect class="ruler" width="640" height="20" x="0" y="0"></rect>
-              <text className="ruler-marks" x="9" y="10">BEAT</text>
-              <text className="ruler-marks" x="45" y="10">2</text>
-              <line className="beat-line" x1="40" y1="0" x2="40" y2="150"></line><text class="ruler-marks" x="85" y="10">3</text><line class="beat-line" x1="80" y1="0" x2="80" y2="150"></line><text class="ruler-marks" x="125" y="10">4</text><line class="beat-line" x1="120" y1="0" x2="120" y2="150"></line><text class="ruler-marks" x="165" y="10">5</text><line class="beat-line measure" x1="160" y1="0" x2="160" y2="150"></line><text class="ruler-marks" x="205" y="10">6</text><line class="beat-line" x1="200" y1="0" x2="200" y2="150"></line><text class="ruler-marks" x="245" y="10">7</text><line class="beat-line" x1="240" y1="0" x2="240" y2="150"></line><text class="ruler-marks" x="285" y="10">8</text><line class="beat-line" x1="280" y1="0" x2="280" y2="150"></line><text class="ruler-marks" x="325" y="10">9</text><line class="beat-line measure" x1="320" y1="0" x2="320" y2="150"></line><text class="ruler-marks" x="365" y="10">10</text><line class="beat-line" x1="360" y1="0" x2="360" y2="150"></line><text class="ruler-marks" x="405" y="10">11</text><line class="beat-line" x1="400" y1="0" x2="400" y2="150"></line><text class="ruler-marks" x="445" y="10">12</text><line class="beat-line" x1="440" y1="0" x2="440" y2="150"></line><text class="ruler-marks" x="485" y="10">13</text><line class="beat-line measure" x1="480" y1="0" x2="480" y2="150"></line><text class="ruler-marks" x="525" y="10">14</text><line class="beat-line" x1="520" y1="0" x2="520" y2="150"></line><text class="ruler-marks" x="565" y="10">15</text><line class="beat-line" x1="560" y1="0" x2="560" y2="150"></line><text class="ruler-marks" x="605" y="10">16</text><line class="beat-line" x1="600" y1="0" x2="600" y2="150"></line></g><rect class="timeline-note" width="158" height="4.791666666666667" x="0" y="29.583333333333336"></rect><rect class="timeline-note" width="158" height="4.791666666666667" x="159.99999999599999" y="130.20833333333334"></rect><rect class="timeline-note" width="158" height="4.791666666666667" x="319.999999996" y="20"></rect><rect class="timeline-note" width="118" height="4.791666666666667" x="479.999999996" y="24.791666666666668"></rect><rect class="timeline-note" width="38" height="4.791666666666667" x="599.999999996" y="24.791666666666668"></rect><path d="M -1 150 l 0 -130 l -6 -6 l 0 -15 l 14 0 l 0 15 l -6 6 l 0 150 Z" class="playhead"></path></g></svg>
+              <LineSetup measures='4' width='640' height='150' beats='4'/>
+            </g>
+
+              <Note x='80' y='50'/>
+              <rect class="timeline-note" width="40" height="4.791666666666667" x="0" y="29.583333333333336"></rect>
+              <rect class="timeline-note" width="158" height="4.791666666666667" x="159.99999999599999" y="130.20833333333334"></rect>
+              <rect class="timeline-note" width="158" height="4.791666666666667" x="319.999999996" y="20"></rect>
+              <rect class="timeline-note" width="118" height="4.791666666666667" x="479.999999996" y="24.791666666666668"></rect>
+              <rect class="timeline-note" width="38" height="4.791666666666667" x="599.999999996" y="24.791666666666668"></rect>
+              <path d="M -1 150 l 0 -130 l -6 -6 l 0 -15 l 14 0 l 0 15 l -6 6 l 0 150 Z" class="playhead"></path>
+          </g></svg>
       </div>
   </div>
     </>
