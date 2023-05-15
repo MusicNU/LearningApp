@@ -3,7 +3,7 @@ import Note from '../Components/pianoroll/Note';
 import LineSetup from '../Components/pianoroll/LineSetup';
 import Tracker from '../Components/musictracker';
 
-
+const tracker = new Tracker();
 const Vis = () => {
  
     //let the function take an input
@@ -164,7 +164,7 @@ const Vis = () => {
               {listnumbers.map((e)=> <rect class="timeline-note" width={note_width} height="4.79" x={notes_x[e]} y={notes_y[e]}></rect>)}
               <LineSetup measures='4' width='640' height='150' beats='4'/>
             </g>
-            <Tracker></Tracker>
+            
             <path d="M 150 150 l 0 -130 l -6 -6 l 0 -15 l 14 0 l 0 15 l -6 6 l 0 150 Z" class="playhead"></path>
           </g></svg>
       </div>
