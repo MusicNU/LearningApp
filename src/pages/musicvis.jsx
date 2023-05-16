@@ -1,24 +1,11 @@
 import '../App.css';
 import Note from '../Components/pianoroll/Note';
 import LineSetup from '../Components/pianoroll/LineSetup';
-import Tracker from '../Components/musictracker';
 
-const tracker = new Tracker();
+const num_divisions = 5
+const line1 = {A:[0,2]}
 const Vis = () => {
- 
-    //let the function take an input
-    const list = ['A','B','C','D','E','F','G','A','B','C','D','E','F','G','A','B'];
-    const listnumbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-    const dict_heights = {'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6};
-    const num_notes = Object.keys(dict_heights).length
-    const tot_width = 640;
-    const tot_height = 150-20;
-    const num_bars = 16;
-    const note_width = tot_width/num_bars;
-    const notes_y = list.map((e) => 20+dict_heights[e]/num_notes * tot_height)
-    const notes_x = listnumbers.map((e)=> e/num_bars * tot_width)
-
-    return (
+  return (
     <>
     <style>
       {`
@@ -35,33 +22,6 @@ const Vis = () => {
         .playhead {
     /*        fill: #82838C; */
           fill: orange;
-        }
-    
-        .ruler {
-          fill: #2E303F;
-        }
-    
-        .ruler-marks {
-          fill: #ccc;
-          text-anchor: start;
-          dominant-baseline: middle;
-          font-family: 'Proxima Nova', sans-serif;
-          font-size: 11px;
-          font-weight: 200;
-          pointer-events: none;
-          user-select: none;
-          -webkit-user-select: none;
-          -moz-user-select: none;
-        }
-    
-        .beat-line {
-          stroke: #ccc;
-          stroke-opacity: 0.1;
-          stroke-width: 1.0;
-        }
-        .beat-line.measure {
-          stroke: #ccc;
-          stroke-opacity: 0.2;
         }
         .timeline #note-hint {
           position: absolute;
@@ -161,12 +121,13 @@ const Vis = () => {
         <svg className="container-bass" version="1.1" viewBox="0 0 640 150">
           <g>
             <g>
-              {listnumbers.map((e)=> <rect class="timeline-note" width={note_width} height="4.79" x={notes_x[e]} y={notes_y[e]}></rect>)}
               <LineSetup measures='4' width='640' height='150' beats='4'/>
-            </g>
-            
-            <path d="M 150 150 l 0 -130 l -6 -6 l 0 -15 l 14 0 l 0 15 l -6 6 l 0 150 Z" class="playhead"></path>
-          </g></svg>
+              </g>
+
+              <Note x='80' y='50'/>
+              <rect class="timeline-note" width="40" height="4.791666666666667" x="0" y="29.583333333333336"></rect>
+              <rect class="timeline-note" width="158" height="4.791666666666667" x="159.99999999599999" y="130.20833333333334"></rect>
+              <rect class="timeline-note" width="158" height="4.791666666666667" x="319.999999996" y="20"></rect><rect class="timeline-note" width="118" height="4.791666666666667" x="479.999999996" y="24.791666666666668"></rect><rect class="timeline-note" width="38" height="4.791666666666667" x="599.999999996" y="24.791666666666668"></rect><path d="M -1 150 l 0 -130 l -6 -6 l 0 -15 l 14 0 l 0 15 l -6 6 l 0 150 Z" class="playhead"></path></g></svg>
       </div>
   </div>
     </>

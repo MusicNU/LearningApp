@@ -44,6 +44,7 @@
   align-items: center;
 }
 
+/* COMPONENT STYLING */
 .card {
   box-shadow: 5px 5px 4px 2.5px rgba(72, 98, 132, 0.3);
   transition: all 0.2s ease;
@@ -64,6 +65,7 @@
   font-weight: bold;
 }
 
+/* MEDIA STYLING */
 .img{
   box-shadow: 0px 0px 3px 1px rgba(72, 98, 132, 0.3);
 }
@@ -84,6 +86,7 @@
   cursor: pointer;
 }
 
+/* SEARCHBAR STYLING */
 .input {
     color: black;
     box-shadow: 1px 2px 4px 2px rgba(203, 187, 187);
@@ -102,6 +105,56 @@
   box-shadow: 2px 3px 10px 5px rgba(203, 187, 187);
 }
 
+/* PIANOROLL SVG STYLING */
+.scroll-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  border: 1px solid #0003;
+}
+
+.timeline {
+  height: 150px;
+  background-color: #414251;
+}
+
+.beat-line {
+  stroke: #ccc;
+  stroke-opacity: 0.1;
+  stroke-width: 1.0;
+}
+
+.beat-line.measure {
+  stroke: #ccc;
+  stroke-opacity: 0.2;
+}
+
+.ruler {
+  fill: #2E303F;
+}
+
+.ruler-marks {
+  fill: #ccc;
+  text-anchor: start;
+  font-family: 'Proxima Nova', sans-serif;
+  font-size: 11px;
+  font-weight: 200;
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+/* PROGRESS BAR STYLING */
+.bar-container{
+  height: 40px;
+  width: 60%;
+  background-color: #dadde3;
+  border-radius: 50px;
+  margin-top: 80px;
+  margin-left: 20%;
+}
+
+/* ELEMENT STYLING */
 h1{
   color: #465d87;
   font-family: 'Londrina Solid', sans-serif;

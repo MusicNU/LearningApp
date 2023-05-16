@@ -53,7 +53,7 @@ function BeatLines(props) {
             })}
             {beatNums.map(x => {
                 return (
-                    <text class="ruler-marks" x={x[1]} y="10">{x[0]}</text>
+                    <text class="ruler-marks" x={x[1]} y="12">{x[0]}</text>
                 );
             })}
         </>

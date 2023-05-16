@@ -1,10 +1,11 @@
 import theme from '../theme';
+import ProgressBar from '../Components/ProgressBar';
 
 const SongPage = () => {
     return(
         <>
         <div class='center'>
-            <p>insert song page with melody/rhythm/chord subpages and back to search button @ sid is this the same as the musicvis page</p>
+            <ProgressBar progress={70} length={120}/>
         </div>
         </>
     )
