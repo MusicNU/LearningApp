@@ -7,13 +7,17 @@ class Tracker extends Component {
     this.makeTimer()
   }
   
+  listnums = [1,2,3]
+
   makeTimer(){
     setInterval(() => {
-      //if (this.state.Position > 640) 
-          //new_pos = 0
-      //else
-      //let new_pos= this.state.Position + 640/16;
-        this.setState({Position: Math.random() * 100})
+
+        this.setState((state)=> {
+          if (state.Position > 610)
+            return {Position: 0};
+          else
+            return {Position: state.Position + 40};
+        })
     }, 1000)
   }
 
