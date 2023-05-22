@@ -144,6 +144,30 @@
   -moz-user-select: none;
 }
 
+.playhead {
+  /*        fill: #82838C; */
+        fill: orange;
+      }
+
+      .timeline-note { fill: #2f9aef; }
+      .timeline-note:hover { fill: white !important; }
+      .timeline-note.highlighted { fill: white !important; }
+      .guitar .timeline-note { fill: #f0c229; }
+      .bass .timeline-note { fill: #ec5eb2; }
+      .marimba .timeline-note { fill: #f6843f; }
+      .piano .timeline-note { fill: #2f9aef; }
+      .drums .timeline-note,
+      .drumkit .timeline-note { fill: #86c44e; }
+  
+      .guitar .timeline-waveform { fill: #f0c229; }
+      .bass .timeline-waveform { fill: #ec5eb2; }
+      .marimba .timeline-waveform { fill: #f6843f; }
+      .piano .timeline-waveform { fill: #2f9aef; }
+      .drums .timeline-waveform,
+      .drumkit .timeline-waveform { fill: #86c44e; }
+  
+ 
+
 /* PROGRESS BAR STYLING */
 .bar-container{
   height: 40px;

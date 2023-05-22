@@ -6,8 +6,6 @@ class Tracker extends Component {
     this.state = {Position : 0}
     this.makeTimer()
   }
-  
-  listnums = [1,2,3]
 
   makeTimer(){
     setInterval(() => {
