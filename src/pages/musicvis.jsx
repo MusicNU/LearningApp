@@ -1,39 +1,38 @@
 import '../App.css';
-import Note from '../Components/pianoroll/Note';
 import LineSetup from '../Components/pianoroll/LineSetup';
-import Tracker from '../Components/pianoroll/musictracker'
-const Vis = () => {
-    //let the function take an input
-    const list = ['A','B','C','D','E','F','G','A','B','C','D','E','F','G','A','B'];
-    const listnumbers = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
-    const dict_heights = {'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6};
-    const num_notes = Object.keys(dict_heights).length
-    const tot_width = 640;
-    const tot_height = 150-20;
-    const num_bars = 16;
-    const note_width = tot_width/num_bars;
-    const notes_y = list.map((e) => 20+dict_heights[e]/num_notes * tot_height)
-    const notes_x = listnumbers.map((e)=> e/num_bars * tot_width)
+import Tracker from '../Components/pianoroll/musictracker';
+import Vis from '../Components/pianoroll/entirebar';
+import React, { Component } from 'react';
 
-  return (
-    <>
-     <div className="scroll-container">
-      <div class="timeline" style={{width: 638}}>
-        <svg className="container-bass" version="1.1" viewBox="0 0 640 150">
-          <g>
-            <g>
-            {listnumbers.map((e)=> <rect class="timeline-note" width={note_width} height="4.79" x={notes_x[e]} y={notes_y[e]}></rect>)}
-              <LineSetup measures='4' width='640' height='150' beats='4'/>
-            </g>
-            <Tracker></Tracker>
-          </g></svg>
+class Display extends Component {
+  constructor(){
+    super()
+    this.state = {section : 0}
+    this.makeTimer()
+  }
 
-              
-      </div>
-  </div>
-    </>
-   
-  )
+  
+  input = [['A','B','C','D','E','F','G','A','B','C','D','E','F','G','A','B'],
+  ['A','B','C','A','B','C','A','B','C','A','B','C','A','B','C','A']];
+
+  makeTimer(){
+    setInterval(() => {
+
+        this.setState((state, props)=> {
+          if (state.section === 1)
+            return {section: 0};
+          else
+            return {section: state.section + 1};
+        })
+    }, 17000)
+  }
+
+  render()
+  {
+    return (
+      <Vis list = {this.input[this.state.section]}></Vis> 
+    )
+  }
 }
-
-export default Vis;
+  
+export default Display
