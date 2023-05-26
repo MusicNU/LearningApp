@@ -28,7 +28,7 @@ class Searchbar extends React.Component {
                 </form>
             </div>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:'10px'}}>
-                <TextBox name={'powered by'} fontSize='20px' elevation='0'></TextBox>
+                <TextBox name={'powered by'} fontSize='20px' elevation='0' marginBottom='0'></TextBox>
                 <img style={{width:'60px', height:'30px', marginLeft:'5px'}} src='https://www.thatitguy.net/wp-content/uploads/2018/08/1280px-Logo_of_YouTube_2015-2017.svg.png' alt="youtube logo"></img>
             </Box>
             </>

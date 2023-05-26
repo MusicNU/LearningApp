@@ -16,7 +16,7 @@ return (<ThemeProvider theme={theme}>
         'left': props.left,
         'marginTop': props.marginTop,
         'backgroundColor': 'transparent',
-        'marginBottom': '20px'
+        'marginBottom': props.marginBottom
     }}>
         {props.name}
     </Paper>

@@ -28,8 +28,8 @@ const AboutPage = () => {
                 <a href="https://tiilt.northwestern.edu/" target="_blank" rel="noreferrer">
                     <Logo width='100%' height='300px'/></a>
                 <div>
-                    <TextBox name={aboutText1} width='675px' fontSize='20px' elevation='0'></TextBox>
-                    <TextBox name={aboutText2} width='675px' fontSize='20px' elevation='0'></TextBox>
+                    <TextBox name={aboutText1} width='675px' fontSize='20px' elevation='0' marginBottom='20px'></TextBox>
+                    <TextBox name={aboutText2} width='675px' fontSize='20px' elevation='0' marginBottom='20px'></TextBox>
                 </div>
             </Box>
 
