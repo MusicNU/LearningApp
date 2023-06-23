@@ -15,3 +15,9 @@ def audio_output():
 
 if __name__ == "__main__":
     app.run(port = 6030, debug=True)
+
+
+@app.route("/melody")
+def get_melody():
+    melody = "melody"
+    return {"melody": melody}
