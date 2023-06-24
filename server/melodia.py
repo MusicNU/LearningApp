@@ -2,10 +2,12 @@ from __future__ import print_function
 
 import vamp
 import librosa
+import matplotlib
 import matplotlib.pyplot as plt
 #just for plotting
 import numpy as np
 #what's wrong?
+matplotlib.use('tkagg')
 # %matplotlib inline
 
 #tutorial copied from : https://github.com/justinsalamon/melodia_python_tutorial/blob/master/melodia_python_tutorial.ipynb
