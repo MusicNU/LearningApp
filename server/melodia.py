@@ -35,3 +35,10 @@ params = {"minfqr": 100.0, "maxfqr": 800.0, "voicing": 0.2, "minpeaksalience": 0
 
 data = vamp.collect(audio, sr, "mtg-melodia:melodia", parameters=params)
 hop, melody = data['vector']
+
+# Melodia returns unvoiced (=no melody) sections as negative values. So by default, we get:
+plt.figure(figsize=(18,6))
+plt.plot(timestamps, melody)
+plt.xlabel('Time (s)')
+plt.ylabel('Frequency (Hz)')
+plt.show()
