@@ -3,6 +3,8 @@ from __future__ import print_function
 import vamp
 import librosa
 import matplotlib.pyplot as plt
+#just for plotting
+import numpy as np
 #what's wrong?
 # %matplotlib inline
 
@@ -20,3 +22,16 @@ audio_file = 'mirex05/train05.wav'
 audio, sr = librosa.load(audio_file, sr=44100, mono=True)
 
 data = vamp.collect(audio, sr, "mtg-melodia:melodia")
+
+
+#hello
+hop, melody = data['vector']
+print(hop)
+print(melody)
+
+#what's wrong?
+timestamps = 8 * 128/44100.0 + np.arange(len(melody)) * (128/44100.0)
+params = {"minfqr": 100.0, "maxfqr": 800.0, "voicing": 0.2, "minpeaksalience": 0.0}
+
+data = vamp.collect(audio, sr, "mtg-melodia:melodia", parameters=params)
+hop, melody = data['vector']
