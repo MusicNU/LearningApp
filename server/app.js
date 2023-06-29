@@ -16,7 +16,7 @@ const infoFromServer = (req, res) => {
     res.send("Here's some info from the server!");
   };
   
-app.get("/", infoFromServer);
+app.get("/", infoFromServer); 
 
 app.get('/tempo', function(req, res) {
     request('http://127.0.0.1:6030/tempo', function (error, response, body) {
@@ -25,6 +25,15 @@ app.get('/tempo', function(req, res) {
         console.log('body:', body); // Print the data received
         res.send(body); //Display the response on the website
       });      
+});
+
+app.get('/rhythm', function(req, res) {
+  request('http://127.0.0.1:6030/rhythm', function (error, response, body) {
+      console.error('error:', error); // Print the error
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the data received
+      res.send(body); //Display the response on the website
+    });      
 });
 
 //send something to the server- let's say the link of a youtube video

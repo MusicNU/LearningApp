@@ -16,6 +16,7 @@ function App() {
     {label: "Music", addr: "/song"},
     {label: "About", addr: "/about"}
   ]
+  
     //<NavBar links={NavBarLinks}/> insert this
   return (
         <Router>
