@@ -29,7 +29,7 @@ class Searchbar extends React.Component {
             </div>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop:'10px'}}>
                 <TextBox name={'powered by'} fontSize='20px' elevation='0' marginBottom='0'></TextBox>
-                <img style={{width:'60px', height:'30px', marginLeft:'5px'}} src='https://www.thatitguy.net/wp-content/uploads/2018/08/1280px-Logo_of_YouTube_2015-2017.svg.png' alt="youtube logo"></img>
+                <img style={{width:'75px', height:'30px'}} src='https://www.logo.wine/a/logo/YouTube/YouTube-Logo.wine.svg' alt="youtube logo"></img>
             </Box>
             </>
         )
