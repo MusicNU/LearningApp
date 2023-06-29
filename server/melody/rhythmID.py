@@ -2,29 +2,27 @@
 import librosa 
 import IPython.display as ipd 
 import matplotlib.pyplot as plt
-import librosa.display
 import numpy as np 
-#import librosa.util
+import io
+import json
 
-def find_tempo():
-    # read audio file 
-    #y, sr = librosa.load('requiem.wav')
+class NumpyArrayEncoder(json.JSONEncoder):
+    def default(self, obj):
+        if isinstance(obj, np.ndarray):
+            return obj.tolist()
+        return json.JSONEncoder.default(self, obj)
+
+def rhythm_output():
     y, sr = librosa.load(librosa.example('brahms'))
+    tempo, beats = librosa.beat.beat_track(y=y, sr=sr, units= 'time')
+    #y_beat_times = librosa.frames_to_time(beats, sr=sr)
+    ipd.Audio(data= y, rate=sr)
+    #convert to JSON object
+    #beats_json = beats.tolist() # nested lists with same data, indices
+    numpyData = {"array": beats}
+    encodedNumpyData = json.dumps(numpyData, cls=NumpyArrayEncoder)  # use dump() to write array into file
+    print("Printing JSON serialized NumPy array")
+    print(encodedNumpyData)
+    return encodedNumpyData
 
-    #finding beat times
-    tempo, beats = librosa.beat.beat_track(y=y, sr=sr)
-    times = librosa.frames_to_time(beats[:100], sr=sr)
-    print(tempo)
-    return(tempo)
-
-# #trying to play clicks on top of audio file
-# ipd.Audio(y, rate=sr)
-# clicks = librosa.clicks(beats, sr=sr)
-# #ipd.Audio(y + clicks, rate = sr)
-
-
-# #plotting beats
-# plt.vlines(times, 0, 10, linestyles ="dotted", colors ="k")
-# plt.xlim(0, 10)
-# plt.ylim(0, 10)
-# plt.show()
+rhythm_output()

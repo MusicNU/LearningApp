@@ -34,7 +34,6 @@ const Vis = (props) => {
       </div>
   </div>
     </>
-   
   )
 }
 

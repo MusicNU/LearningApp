@@ -8,16 +8,15 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/tempo")
-def audio_output():
-    tempo = find_tempo()
-    return {"tempo":tempo}
-
-if __name__ == "__main__":
-    app.run(port = 6030, debug=True)
+@app.route('/rhythm', methods=['GET'])
+def spectro_output():
+    return {"beats":rhythm_output()}
 
 
 @app.route("/melody")
 def get_melody():
     melody = "melody"
     return {"melody": melody}
+
+if __name__ == "__main__":
+    app.run(port = 6030, debug=True)
