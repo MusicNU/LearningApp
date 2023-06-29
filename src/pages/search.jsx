@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Typography, TextField} from '@mui/material/';
-import NoteBox from '../Components/NoteBox';
 import Searchbar from '../Components/SearchBar';
 import React from 'react';
 import youtube from '../apis/youtube';
