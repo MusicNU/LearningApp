@@ -33,10 +33,16 @@ print(melody)
 
 #what's wrong?
 timestamps = 8 * 128/44100.0 + np.arange(len(melody)) * (128/44100.0)
+print(timestamps)
 params = {"minfqr": 100.0, "maxfqr": 800.0, "voicing": 0.2, "minpeaksalience": 0.0}
 
 data = vamp.collect(audio, sr, "mtg-melodia:melodia", parameters=params)
 hop, melody = data['vector']
+
+mel_array = np.array(melody)
+clean_mel = [note for note in mel_array if note > 0]
+notes = librosa.hz_to_note(clean_mel)
+print(notes)
 
 # Melodia returns unvoiced (=no melody) sections as negative values. So by default, we get:
 plt.figure(figsize=(18,6))
