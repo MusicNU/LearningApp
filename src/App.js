@@ -7,6 +7,7 @@ import Song from './pages/song';
 import AboutPage from './pages/aboutpage';
 import NavBar from './Components/NavBar';
 import Vis from './pages/musicvis';
+import RhythmPage from './pages/rhythm';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
             <Route path='/song'  element={<Song />} />
             <Route path='/about'  element={<AboutPage />} />
             <Route path='/musicvis'  element={<Vis />} />
+            <Route path='/song/rhythm'  element={<RhythmPage />} />
           </Routes>
         </Router>
           
