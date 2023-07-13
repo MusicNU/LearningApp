@@ -1,7 +1,7 @@
 import sys, os
 sys.path.append(os.path.join(sys.path[0],'melody'))
 print(os.path.join(sys.path[0],'melody'))
-from rhythmID import find_tempo
+from rhythmID import rhythm_output
 
 
 from flask import Flask

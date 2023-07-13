@@ -5,6 +5,7 @@ import Vis from '../Components/pianoroll/entirebar';
 import React, { Component } from 'react';
 import Circ from '../Components/rhythmViz'
 import { useState, useEffect } from "react";
+import Button from '@mui/material/Button';
 
 const Display = () => {
   const input = [['A','B','C','D','E','F','G','A','B','C','D','E','F','G','A','B'],
@@ -13,12 +14,13 @@ const Display = () => {
 
   const [params, setParams] = useState({"section": 0,
       "color":"red",
-      "beat_times": 0
+      "beat_times": 0,
+      "paused": 0
       });
 
   function updateColor() {
 
-    const colors = ["red","green","blue", "yellow", "white"];
+    const colors = ["red","green","blue", "yellow", "magenta"];
     const num = Math.floor(Math.random() * 5);
     return colors[num];
 
@@ -27,18 +29,42 @@ const Display = () => {
   const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
     async function setUpdates() {
-    for (let i = 1; i <= 100; i++) {
+    for (let i = 0; i < beat_times.length - 1; i++) {
       // setTimeout(() => setParams({section: params.section,
       //            color: updateColor(),
       //           beat_times: params.beat_times}), 2000 * i)
-      await sleep(5000)
-      setParams({section: params.section,
-                   color: updateColor(),
-                  beat_times: params.beat_times})
+      if (params.paused === 1)
+      {
+        clearTimeout()
+        await sleep(15000)
+      }
+      
+      await sleep((beat_times[i+1] - beat_times[i]) * 1000)
+      setParams(previousState => {
+        return {...previousState,
+             color: updateColor()}})
 
       
     }
   }
+
+  async function togglePause() {
+    if(params.paused === 0)
+    {
+    setParams(previousState => {
+        return {...previousState, paused: 1 }})
+        await waitPause()
+    }
+    else 
+    setParams(previousState => {
+        return {...previousState, paused: 0 }})
+}
+
+    async function waitPause() {
+                await sleep(15000)
+        }
+        
+    
   
     
   // setInterval(() => {
@@ -71,19 +97,16 @@ const Display = () => {
       console.log(Error)
     }
 }
-  //useEffect
-  useEffect(() => {
-    setUpdates()
-  //Runs on every render
-  //fetchBeats()
-  });
 
   //<Vis list = {input[params.section]}></Vis> 
   //<button onclick={setUpdates()} >click me</button>
     return (
       <>
+      <button onClick={setUpdates}> Get started! </button>
         <Circ color = {params.color}/>
         <p>{params.color}</p>
+        <p>{params.paused}</p>
+        <button onClick = {togglePause}> pause </button>
         
       </>
     )

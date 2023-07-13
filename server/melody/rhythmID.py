@@ -15,14 +15,15 @@ class NumpyArrayEncoder(json.JSONEncoder):
 def rhythm_output():
     y, sr = librosa.load(librosa.example('brahms'))
     tempo, beats = librosa.beat.beat_track(y=y, sr=sr, units= 'time')
-    #y_beat_times = librosa.frames_to_time(beats, sr=sr)
-    ipd.Audio(data= y, rate=sr)
+    onset_times = librosa.onset.onset_detect(y=y, sr=sr, units = 'time')  #time series of onsets
     #convert to JSON object
     #beats_json = beats.tolist() # nested lists with same data, indices
-    numpyData = {"array": beats}
+    numpyData = {"beats": beats,
+                 "onsets": onset_times}
     encodedNumpyData = json.dumps(numpyData, cls=NumpyArrayEncoder)  # use dump() to write array into file
     print("Printing JSON serialized NumPy array")
     print(encodedNumpyData)
+    print("printing the onset times:", onset_times)
     return encodedNumpyData
 
 rhythm_output()

@@ -13,4 +13,12 @@ import { useTheme} from '@mui/material/styles';
     )
   }
 
+  export function sun() {
+    return (
+      <svg className = "RhythCirc" width="200" height="200" viewBox="0 0 210 210">
+
+    </svg>
+    )
+  }
+
 export default Circ;
