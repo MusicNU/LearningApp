@@ -57,11 +57,14 @@
 }
 
 .button{
-  transition: all 0.9s ease;
+  transition: all 0.05s ease;
+  color: #465d87;
+  /* background-color: white; */
+  /* border-radius: 20px; */
 }
 
 .button:hover{
-  transform: scale(1.06);
+  transform: scale(1.05);
   font-weight: bold;
 }
 
