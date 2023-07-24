@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import Button from '@mui/material/Button';
+import Vis from '../Components/pianoroll/entirebar';
 
 const RhythmPage = () => {
 
