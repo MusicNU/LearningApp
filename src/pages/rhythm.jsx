@@ -15,7 +15,7 @@ const RhythmPage = () => {
         //"beat_times": 0,
         "color":"black",
         "index":0,
-        "play":true
+        "design": true
         });    
 
     function getSize(time) {
@@ -34,20 +34,30 @@ const RhythmPage = () => {
     function getColor(time){
         const num = Math.floor(Math.random() * 8);
         if (counter===time){
+            params.index = params.index + 1
             //return Math.random().toString(16).substr(-6);
             return colors[num];
         }
         return params.color
     }
 
-    function setSize() {
+    function setSizeandColor() {
         const time = Math.round(timing[params.index]*100)/100
-        setParams({
-                    size: getSize(time),
+        //if option is color, set the size to constant and vice versa
+        if (params.design == true)
+        setParams(previousState => {
+            return {...previousState,
+                    //section: params.section,
+                    //beat_times: 0,
+                    color: 'black',
+                    size: getSize(time)}}) 
+        else
+        setParams(previousState => {
+            return {...previousState,
                     //section: params.section,
                     //beat_times: 0,
                     color: getColor(time),
-                    index: params.index})
+                    size: 50}}) 
     }
     
 
@@ -60,7 +70,7 @@ const RhythmPage = () => {
     useEffect(() => {
         let timer;
         if (isRunning && counter<songLength){
-            setSize()
+            setSizeandColor()
             // conditions for timer continue
             timer = (setInterval(() => setCounter(Math.round((counter + .01)*100)/100), 10));
         }
@@ -71,20 +81,26 @@ const RhythmPage = () => {
         setIsRunning(!isRunning);
     };
 
+    const changeDesign = () => {
+        setParams(prev => {
+            return {...prev,
+                    design:!params.design}
+        })}
 
     return(
         <>
         <div class='center'>
         <svg className="RhythCirc" width="200" height="200" viewBox="0 0 210 210">
-            <circle cx="100" cy="100" r={params.size} stroke-width="3" fill="black" />
+            <circle cx="100" cy="100" r={params.size} stroke-width="3" fill={params.color} />
             {/* <circle cx="100" cy="100" r="60" fill="blue" /> */}
         </svg>
         </div >
+
         <div class='center'>
-        <p>{params.size}</p>
-        <div>{params.color}</div>
-        <div>{counter}</div>
+        <p>{params.design}</p>
         <Button className="button" onClick={startAndStop}> Toggle
+        </Button>
+        <Button className="button" onClick={changeDesign}> Change Design
         </Button>
         </div>
         </>
