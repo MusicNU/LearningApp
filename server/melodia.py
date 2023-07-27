@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 #just for plotting
 import numpy as np
 #what's wrong?
-matplotlib.use('tkagg')
-# %matplotlib inline
+#matplotlib.use('TKAgg')
+#%matplotlib inline
 
-#tutorial copied from : https://github.com/justinsalamon/melodia_python_tutorial/blob/master/melodia_python_tutorial.ipynb
+# tutorial copied from : https://github.com/justinsalamon/melodia_python_tutorial/blob/master/melodia_python_tutorial.ipynb
 
 # You can download it here: http://labrosa.ee.columbia.edu/projects/melody/mirex05TrainFiles.zip
 audio_file = 'mirex05/train05.wav'
@@ -28,12 +28,13 @@ data = vamp.collect(audio, sr, "mtg-melodia:melodia")
 
 #hello
 hop, melody = data['vector']
-print(hop)
-print(melody)
+#print(hop)
+#print(melody)
 
 #what's wrong?
-timestamps = 8 * 128/44100.0 + np.arange(len(melody)) * (128/44100.0)
-print(timestamps)
+#timestamps = 8 * 128/44100.0 + np.arange(len(melody)) * (128/44100.0)
+timestamps = 8 * 1/100.0 + np.arange(len(melody)) * (1/100.0)
+#print(timestamps)
 params = {"minfqr": 100.0, "maxfqr": 800.0, "voicing": 0.2, "minpeaksalience": 0.0}
 
 data = vamp.collect(audio, sr, "mtg-melodia:melodia", parameters=params)
