@@ -73,7 +73,7 @@ const RhythmPage = () => {
         if (isRunning && counter<songLength){
             setSizeandColor()
             // conditions for timer continue
-            timer = (setInterval(() => setCounter(Math.round((counter + .01)*100)/100), 10));
+            timer = (setInterval(() => setCounter(Math.round((counter + .01)*100)/100), 5));
         }
         return () => clearInterval(timer);
     }, [isRunning, counter]);
@@ -82,11 +82,29 @@ const RhythmPage = () => {
         setIsRunning(!isRunning);
     };
 
+    const reset = ()=> {
+        setCounter(0);
+        setParams({
+            size: 50,
+            color: "black",
+            index: 0,
+            design: params.design})
+        setIsRunning(false);
+    }
+
     const changeDesign = () => {
         setParams(prev => {
             return {...prev,
+                    color: "black",
                     design:!params.design}
         })}
+    
+    const designPrint = ()=> {
+        if (params.design){
+            return('boomy')
+        }
+        return('colors')
+    }
 
     return(
         <>
@@ -98,8 +116,10 @@ const RhythmPage = () => {
         </div >
 
         <div class='center'>
-        <p>{params.design}</p>
+        <p>{String(params.design)}</p>
         <Button className="button" onClick={startAndStop}> Toggle
+        </Button>
+        <Button className="button" onClick={reset}> Reset
         </Button>
         <Button className="button" onClick={changeDesign}> Change Design
         </Button>
