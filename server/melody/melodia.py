@@ -16,6 +16,8 @@ import io
 import json
 import requests
 from pytube import YouTube
+import os
+import subprocess
 
 #tutorial copied from : https://github.com/justinsalamon/melodia_python_tutorial/blob/master/melodia_python_tutorial.ipynb
 
@@ -50,7 +52,18 @@ def melody(song):
     # Use Pytube to convert link to mp4
     yt = YouTube(song["link"])
     audio_stream = yt.streams.filter(only_audio=True).first()
-    audio_stream.download(output_path='mirex05/{}'.format(audio_stream.title))
+    # audio_stream.download(output_path='mirex05/{}'.format(audio_stream.title))
+
+    default_filename=audio_stream.title
+    print("This is", default_filename)
+
+    audio_stream.download(output_path='mirex05/{}'.format(default_filename))
+
+    subprocess.run([
+        'ffmpeg',
+        '-i', os.path.join('mirex05/', default_filename),
+        os.path.join('mirex05/', default_filename + '.mp3')
+    ])
 
     # This is how we load audio using Librosa
     audio, sr = librosa.load('mirex05/{}/{}'.format(audio_stream.title,audio_stream.title + '.mp4'), sr=44100, mono=True)
