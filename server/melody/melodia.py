@@ -52,7 +52,6 @@ def melody(song):
     # Use Pytube to convert link to mp4
     yt = YouTube(song["link"])
     audio_stream = yt.streams.filter(only_audio=True).first()
-    # audio_stream.download(output_path='mirex05/{}'.format(audio_stream.title))
 
     default_filename=audio_stream.title
     print("This is", default_filename)
