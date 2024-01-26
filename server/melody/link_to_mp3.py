@@ -28,5 +28,7 @@ def link_to_mp3(song):
 
     if os.path.exists(os.path.join(output_folder, mp4_file)):
         os.remove(os.path.join(output_folder, mp4_file))
+    print(pytube.extract.video_id(song))
+    return str(pytube.extract.video_id(song))
    
-link_to_mp3(link)
+# link_to_mp3(link)

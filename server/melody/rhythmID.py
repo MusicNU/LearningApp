@@ -15,9 +15,8 @@ class NumpyArrayEncoder(json.JSONEncoder):
        return json.JSONEncoder.default(self, obj)
 
 
-def rhythm_output(song):
-   print("this is the song",song) # TO DO: edit input to Librosa, following melodia.py
-   y, sr = librosa.load(librosa.example('brahms'))
+def rhythm_output(video_id):
+   y, sr = librosa.load('mirex05/{}'.format(video_id + '.mp3'))
    tempo, beats = librosa.beat.beat_track(y=y, sr=sr, units= 'time')
    onset_times = librosa.onset.onset_detect(y=y, sr=sr, units = 'time')  #time series of onsets
    #convert to JSON object

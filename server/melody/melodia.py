@@ -41,6 +41,7 @@ def melody(video_id):
     notes = librosa.hz_to_note(clean_mel)
     numpyData = {"notes": notes}
     encodedNumpyData = json.dumps(numpyData, cls=NumpyArrayEncoder)  # use dump() to write array into file
+    # print(encodedNumpyData)
     return encodedNumpyData
 
-melody("QLpArkPb-YU")
+# melody('QLpArkPb-YU')
