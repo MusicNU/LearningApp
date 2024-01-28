@@ -5,9 +5,7 @@ import { Button, ThemeProvider } from '@mui/material';
 import NavButton from '../Components/NavButton';
 import ReactAudioPlayer from 'react-audio-player';
 
-const filename = "./hello.mp3"
-
-import audio_file from {filename}
+import audio_file from "./hello.mp3";
 
 const SongPage = () => {
     return(
