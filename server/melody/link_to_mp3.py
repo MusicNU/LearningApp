@@ -14,21 +14,27 @@ def link_to_mp3(song):
     output_folder = 'mirex05'
     os.makedirs(output_folder, exist_ok=True)
 
-    default_filename = audio_stream.title
+    youtube_id = pytube.extract.video_id(song)
 
-    audio_stream.download(output_path=output_folder)
+    if os.path.exists(os.path.join(output_folder, f"{youtube_id}.mp3")):
+        print(youtube_id)
+        return str(youtube_id)
+
+    # youtube_id = pytube.extract.video_id(song)
+
+    audio_stream.download(output_path=output_folder, filename=f"{youtube_id}.mp4")
 
     subprocess.run([
         'ffmpeg',
-        '-i', os.path.join(output_folder, default_filename + '.mp4'),
-        os.path.join(output_folder, pytube.extract.video_id(song) + '.mp3')
+        '-i', os.path.join(output_folder, youtube_id + '.mp4'),
+        os.path.join(output_folder, youtube_id + '.mp3')
     ])
 
-    mp4_file = default_filename + '.mp4'
+    mp4_file = youtube_id + '.mp4'
 
     if os.path.exists(os.path.join(output_folder, mp4_file)):
         os.remove(os.path.join(output_folder, mp4_file))
-    print(pytube.extract.video_id(song))
-    return str(pytube.extract.video_id(song))
+    print(youtube_id)
+    return str(youtube_id)
    
 # link_to_mp3(link)
