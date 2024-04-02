@@ -2,8 +2,11 @@ import os
 import subprocess
 from pytube import YouTube
 import pytube
+import ssl
 
-link = "https://www.youtube.com/watch?v=QLpArkPb-YU"
+ssl._create_default_https_context = ssl._create_stdlib_context
+link = "https://www.youtube.com/watch?v=9bahTUVLXZw"
+
 
 def link_to_mp3(song):
     # Use Pytube to convert link to mp4
@@ -22,7 +25,8 @@ def link_to_mp3(song):
 
     # youtube_id = pytube.extract.video_id(song)
 
-    audio_stream.download(output_path=output_folder, filename=f"{youtube_id}.mp4")
+    audio_stream.download(output_path=output_folder,
+                          filename=f"{youtube_id}.mp4")
 
     subprocess.run([
         'ffmpeg',
@@ -36,5 +40,6 @@ def link_to_mp3(song):
         os.remove(os.path.join(output_folder, mp4_file))
     print(youtube_id)
     return str(youtube_id)
-   
-# link_to_mp3(link)
+
+
+link_to_mp3(link)
