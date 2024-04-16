@@ -1,2 +1,4 @@
 node_modules
 .DS_Store
+./server/venv/*
+./server/backend/mp3_files/*
