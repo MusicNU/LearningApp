@@ -6,7 +6,7 @@ import ssl
 
 ssl._create_default_https_context = ssl._create_stdlib_context
 
-link = "https://www.youtube.com/watch?v=YQHsXMglC9A"
+link = "https://www.youtube.com/watch?v=Sv6dMFF_yts"
 
 def link_to_mp3(song):
     # Use Pytube to convert link to mp4
