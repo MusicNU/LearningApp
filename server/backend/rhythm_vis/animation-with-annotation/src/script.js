@@ -1,5 +1,6 @@
 function plot() {
-  console.log("plot");
+  var audio = new Audio("result0.wav");
+  audio.play();
   Plotly.d3.csv(
     "./beats_res.csv",
     function (err, rows) {
@@ -11,10 +12,17 @@ function plot() {
 
       var frames = [];
       console.log(rows);
-      var x = unpack(rows, 0);
-      var y = unpack(rows, 1);
+      var y = unpack(rows, 0);
+      var x = [];
 
-      var n = 100;
+      for (var i = 1; i <= y.length; i++) {
+        x.push(i);
+      }
+
+      console.log(x);
+      console.log(y);
+
+      var n = 993;
       for (var i = 0; i < n; i++) {
         frames[i] = { data: [{ x: [], y: [] }] };
         frames[i].data[0].x = x.slice(0, i + 1);
@@ -30,24 +38,23 @@ function plot() {
         line: { color: "green" },
       }], {
         xaxis: {
-          type: "date",
           range: [
-            frames[99].data[0].x[0],
-            frames[99].data[0].x[99],
+            0,
+            993,
           ],
-          showgrid: false,
-          showline: false,
-          showticklabels: false,
+          showgrid: true,
+          showline: true,
+          showticklabels: true,
           zeroline: false,
         },
         yaxis: {
           range: [
             0,
-            90,
+            2,
           ],
-          showgrid: false,
-          showline: false,
-          showticklabels: false,
+          showgrid: true,
+          showline: true,
+          showticklabels: true,
           zeroline: false,
         },
         annotations: [{
@@ -81,7 +88,7 @@ function plot() {
             duration: 0,
           },
           frame: {
-            duration: 20,
+            duration: 32.45,
             redraw: false,
           },
         });
